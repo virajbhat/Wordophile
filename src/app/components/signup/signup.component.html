@@ -1,13 +1,48 @@
 <div id="login-box">
   <div class="left">
     <h1>Sign up</h1>
+    <form [formGroup]="angForm" novalidate>
+
+            <div class="form-group">    
+                    <input type="text" class="form-control" formControlName="UserName"  #UserName  placeholder="Username" /> 
+                  </div>
+
+            <div *ngIf="angForm.controls['UserName'].invalid && (angForm.controls['UserName'].dirty || angForm.controls['UserName'].touched)" class="temp">
+                    <div *ngIf="angForm.controls['UserName'].errors.required">  
+                            Username is required.  
+                          </div>  
+                        </div>  
     
-    <input type="text" name="username" placeholder="Username" />
-    <input type="text" name="email" placeholder="E-mail" />
-    <input type="password" name="password" placeholder="Password" />
-    <input type="password" name="password2" placeholder="Retype password" />
-    
-    <input type="submit" name="signup_submit" value="Sign me up" />
+
+                        <div class="form-group">  
+                                <input type="text" class="form-control" formControlName="Email" #Email placeholder="Email"/> 
+                              </div>  
+                              <div *ngIf="angForm.controls['Email'].invalid && (angForm.controls['Email'].dirty || angForm.controls['Email'].touched)" class="alert alert-danger">  
+                                <div *ngIf="angForm.controls['Email'].errors.required">  
+                                        Email is required.  
+                                </div>  
+                              </div>
+
+                              <div class="form-group">  
+                                    <input type="password" placeholder="Password" class="Password" formControlName="Password" #Password placeholder="Password"/> 
+                                  </div>  
+                                  <div *ngIf="angForm.controls['Password'].invalid" class="alert alert-danger">  
+                                    <div *ngIf="angForm.controls['Email'].errors.required">  
+                                            Password is required.  
+                                    </div>  
+                                  </div>
+
+  
+    <input type="password" name="password2" placeholder="Confirm Password" />
+
+
+    <div class="form-group">  
+            <button type="submit"  
+            [disabled]="angForm.pristine || angForm.invalid" >  
+              Create Product  
+            </button>  
+          </div>  
+</form>
   </div>
   
   <div class="right">

@@ -8,10 +8,12 @@ import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';  
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';  
 
 @NgModule({
-  declarations: [
+  declarations: [ 
     AppComponent,
     HomeComponent,
     AboutusComponent,
@@ -19,8 +21,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     SignupComponent
   ],
   imports: [
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
+    SlimLoadingBarModule,
     FormsModule
   ],
   providers: [],
